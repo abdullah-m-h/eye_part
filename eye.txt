@@ -1,0 +1,31 @@
+// C++ 
+
+int i;
+
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(5, OUTPUT);
+  pinMode(6, OUTPUT);
+  pinMode(A0,INPUT);
+}
+
+void loop()
+{
+  
+ int x= analogRead(A0);     // check the light 
+  Serial.println(analogRead(A0));
+  if (x<250)              // if it's dark turn on the LED
+  { for(i=0;i<255;i++){
+    analogWrite(5,i);
+   analogWrite(6,i);
+    delay(1);
+  }
+  }else {                // if the light is on turn off the LED
+    
+  analogWrite(6,0);
+    analogWrite(5,0);
+      
+  }
+  
+}
